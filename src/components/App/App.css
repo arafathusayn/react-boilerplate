@@ -1,0 +1,36 @@
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  overflow: hidden;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.controls button {
+  cursor: pointer;
+  border: 0;
+  margin: 100px 10px;
+  outline: 0;
+  background-color: white;
+  font-size: 1.25em;
+}
+
+div[role="button"] {
+  cursor: pointer;
+}
+
+.main-footer {
+  margin-top: 50px;
+  font-size: 0.75em;
+}
+
+.container {
+  display: flex;
+  flex-flow: column;
+}
