@@ -1,6 +1,7 @@
 import { Machine } from "xstate";
 import { AppContext, AppState } from "../../typings";
-import getAppContext from "../utils/get-app-context";
+import getDefaultAppContext from "../utils/get-default-app-context";
+import changeRotationSpeed from "../actions/change-rotation-speed";
 
 const persistedStates: string[] = [];
 
@@ -45,11 +46,11 @@ const appMachine = Machine<AppContext>(
     on: {
       // Events Outside of This State Machine
     },
-    context: getAppContext(),
+    context: getDefaultAppContext(),
   },
   {
     actions: {
-      changeRotationSpeed: () => {},
+      changeRotationSpeed,
     },
     services: {},
   },
