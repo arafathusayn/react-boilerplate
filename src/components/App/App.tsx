@@ -7,7 +7,7 @@ import logo from "../../logo.svg";
 const App = (): React.ReactElement => {
   const [currentState, sendEvent] = useMachine(appMachine);
 
-  const { rotationSpeed = 25 } = currentState.event;
+  const { rotationSpeed } = currentState.context;
 
   return (
     <div className="app">
