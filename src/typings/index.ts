@@ -1,4 +1,4 @@
-import { Action, AssignAction } from "xstate";
+import { Action, AnyEventObject, AssignAction } from "xstate";
 
 /**
  * Make all properties in T optional
@@ -6,11 +6,6 @@ import { Action, AssignAction } from "xstate";
 type Partial<T> = {
   [P in keyof T]?: T[P];
 };
-
-export interface AppEvent {
-  type: string;
-  [key: string]: string;
-}
 
 export interface AppContext {
   rotationSpeed: number;
@@ -25,10 +20,10 @@ export interface AppState {
       | {
           target: string;
           actions?:
-            | Action<AppContext, AppEvent>[]
-            | Action<AppContext, AppEvent>
+            | Action<AppContext, AnyEventObject>[]
+            | Action<AppContext, AnyEventObject>
             | string;
         };
   };
-  entry?: AssignAction<AppContext, AppEvent> | string[];
+  entry?: AssignAction<AppContext, AnyEventObject> | string[];
 }
