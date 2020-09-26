@@ -1,13 +1,11 @@
-import { Machine } from "xstate";
-import { AppContext, AppState } from "../../typings";
+import { AnyEventObject, Machine, StateSchema, StatesConfig } from "xstate";
+import { AppContext } from "../../typings";
 import getDefaultAppContext from "../utils/get-default-app-context";
 import changeRotationSpeed from "../actions/change-rotation-speed";
 
 const persistedStates: string[] = [];
 
-// const commonActions: string[] = ["persistContext"];
-
-const states: { [key: string]: AppState } = {
+const states: StatesConfig<AppContext, StateSchema, AnyEventObject> = {
   AppStarted: {
     on: {
       ROTATION_SPEED_CHANGE: {
